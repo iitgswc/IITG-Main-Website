@@ -1,0 +1,292 @@
+{% extends 'main/base.html' %}
+{% block title %}
+	Home Page
+{% endblock %}
+{% block main %}
+	<div class="wrapper">
+
+         <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <!--/.navbar-header-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="container">
+               <ul class="nav navbar-nav" style="width: 100%;">
+                  <li class="dropdown col-sm-2">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>About IITG</b><b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        {% for abt in about %}
+                        	{% if abt.is_active %}
+                        		<li><a href="{{ abt.link }}">{{ abt.title }}</a></li>
+                        	{% endif %}
+                        {% endfor %}
+                     </ul>
+                  </li>
+                  <li class="dropdown col-sm-2">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Administration</b><b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        {% for adm in administration %}
+                        	{% if adm.is_active %}
+                        		<li><a href="{{ adm.link }}">{{ adm.title }}</a></li>
+                        	{% endif %}
+                        {% endfor %}
+                     </ul>
+                  </li>
+                  <li class="dropdown col-sm-2">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Departments</b><b class="caret"></b></a>
+                     <ul class="dropdown-menu multi-column columns-2">
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Departments</a></li>
+                                 <li class="divider"></li>
+                             	{% for dept in department %}
+		                        	{% if dept.is_active %}
+		                        		<li><a href="{{ dept.link }}">{{ dept.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                              </ul>
+                           </div>
+                           <div class="col-sm-6">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Academic Affairs</a></li>
+                                 <li class="divider"></li>
+                                 {% for token in academic %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                              </ul>
+                           </div>
+                        </div>
+                     </ul>
+                  </li>
+                  <li class="dropdown col-sm-2">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Centres</b><b class="caret"></b></a>
+                     <ul class="dropdown-menu multi-column columns-2">
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Academic Centres</a></li>
+                                 <li class="divider"></li>
+                                 	{% for token in center %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                              </ul>
+                           </div>
+                           <div class="col-sm-6">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Extramural Centres</a></li>
+                                 <li class="divider"></li>
+                                 {% for token in emcenter %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                                 
+                              </ul>
+                           </div>
+                        </div>
+                     </ul>
+                  </li>
+                  <li><a href="#"><b>Research</b></a>
+                  </li>
+                  <li class="dropdown col-sm-2">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Partnerships</b><b class="caret"></b></a>
+                     <ul class="dropdown-menu multi-column columns-3">
+                        <div class="row">
+                           <div class="col-sm-4">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Alumni and External Relations</a></li>
+                                 <li class="divider"></li>
+                                 	{% for token in partnership %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Exchange Program</a></li>
+                                 <li class="divider"></li>
+                                 	{% for token in exchangeprog %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <ul class="multi-column-dropdown">
+                                 <li><a href="#">Mobility Info.</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="#">Brochure for Foreign Students</a></li>
+                                 <li><a href="#">Immigration Info.</a></li>
+                                 <li><a href="#">Fact Sheet</a></li>
+                                 <li><a href="#">IITG Poster</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="#">Memorandum of Understanding</a></li>
+                                 <li class="divider"></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+            </div>
+            <!--/.navbar-collapse-->
+         </nav>
+         <!--/.navbar-->
+         <!-- Start WOWSlider.com BODY section -->
+        <div id="wowslider-container1" style="margin-bottom: 2%">
+           <div class="ws_images">
+              <ul>
+                 <li><img src="http://iitg.net.in/test/data1/images/4.jpg" alt="4" title="4" id="wows1_0"/></li>
+              </ul>
+           </div>
+           <div class="ws_bullets">
+              <div>
+                 <a href="http://iitg.net.in/test/data1/images/4.jpg" title="4"><span><img src="http://iitg.net.in/test/data1/tooltips/4.jpg" alt="4"/>1</span></a>
+                 <a href="http://iitg.net.in/test/data1/images/6.jpg" title="6"><span>2</span></a>
+                 <a href="http://iitg.net.in/test/data1/images/3.jpg" title="3"><span>3</span></a>
+                 <a href="http://iitg.net.in/test/data1/images/2.jpg" title="2"><span>4</span></a>
+                 <a href="http://iitg.net.in/test/data1/images/1.jpg" title="1"><span>5</span></a>
+                 <a href="http://iitg.net.in/test/data1/images/5.jpg" title="5"><span>6</span></a>
+              </div>
+           </div>
+           <div class="ws-title-wrapper">
+            <div class="slide-announce">
+              <ul>
+                <a href="#" style="float: right;">View All> </a>
+                <h4><b>ANNOUNCEMENT</b></h4>
+                {% for token in announcement %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+              </ul>
+            </div>
+         </div>
+        </div>
+        <script type="text/javascript" src="engine1/wowslider.js"></script>
+        <script type="text/javascript" src="engine1/script.js"></script>
+        <!-- End WOWSlider.com BODY section -->
+         <div class="information" style="margin-bottom: 5%">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-4">
+                     <ul class="research">
+                        <a href="#" style="float: right;text-decoration: none;font-size: 15px;">View All> </a>
+                        <h4><b>REASEARCH & INNOVATION</b></h4>
+                        {% for token in researchinnovation %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                     </ul>
+                  </div>
+                  <div class="col-sm-4 upcoming">
+                     <ul>
+                        <a href="#" style="float: right;text-decoration: none;font-size: 15px;">View All> </a>
+                        <h4><b>UPCOMING EVENTS</b></h4>
+                        <li>
+                           {% for token in upcomingevent %}
+		                        	{% if token.is_active %}
+		                        		<div class="row">
+			                              <div class="col-sm-2">{{ token.date }}</div>
+			                              <div class="col-sm-10 upcoming-text"><a href="{{token.link}}">{{ token.title }}</a></div>
+			                           </div>
+		                        	{% endif %}
+		                        {% endfor %}
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-sm-4 quick-link">
+                     <ul>
+                        <h4><b>QUICK LINKS</b></h4>
+                        {% for token in quicklink %}
+		                        	{% if token.is_active %}
+		                        		<li><a href="{{ token.link }}">{{ token.title }}</a></li>
+		                        	{% endif %}
+		                        {% endfor %}
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="image-galery" style="margin-bottom: 5%">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="thumbnail">
+                        <a href="/w3images/lights.jpg">
+                           <img src="images/director.jpg" style="width:100%">
+                           <div class="caption">
+                              <p>Director's Desk</p>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="thumbnail">
+                        <a href="/w3images/nature.jpg">
+                           <img src="images/initiative.jpg" style="width:100%">
+                           <div class="caption">
+                              <p>Initiative</p>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="thumbnail">
+                        <a href="/w3images/fjords.jpg">
+                           <img src="images/initiative.jpg" style="width:100%">
+                           <div class="caption">
+                              <p>About the campus</p>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="thumbnail">
+                        <a href="/w3images/fjords.jpg">
+                           <img src="images/alumni.jpg" style="width:100%">
+                           <div class="caption">
+                              <p>Alumni </p>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div>
+          <a >
+            <img style="width: 100%" data-toggle="modal" data-target="#myModal" src="images/video.png" />
+          </a>
+         </div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+               <iframe style="width:100%; height: 300px;" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+              </div>
+              
+            </div>
+          </div>
+         
+         <!-- wrapper div ends below-->
+      </div>
+{% endblock %}
