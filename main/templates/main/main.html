@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
+{% load static %}
 {% block title %}
-	Home Page
+:	Home Page
 {% endblock %}
 {% block main %}
 	<div class="wrapper">
@@ -125,6 +126,7 @@
 		                        {% endfor %}
                               </ul>
                            </div>
+                           <!--
                            <div class="col-sm-4">
                               <ul class="multi-column-dropdown">
                                  <li><a href="#">Mobility Info.</a></li>
@@ -138,6 +140,7 @@
                                  <li class="divider"></li>
                               </ul>
                            </div>
+                           -->
                         </div>
                      </ul>
                   </li>
@@ -151,17 +154,28 @@
         <div id="wowslider-container1" style="margin-bottom: 2%">
            <div class="ws_images">
               <ul>
-                 <li><img src="http://iitg.net.in/test/data1/images/4.jpg" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/1.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/2.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/3.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/4.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/5.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                 <li><img src="{% static 'main/images/6.jpg' %}" alt="4" title="4" id="wows1_0"/></li>
+                  {% for token in carouselimages %}
+                      <li><img src="{% static token.image %}" alt="4" title="4" id="wow1_0"/></li>
+                  {% endfor %}
               </ul>
            </div>
            <div class="ws_bullets">
               <div>
-                 <a href="http://iitg.net.in/test/data1/images/4.jpg" title="4"><span><img src="http://iitg.net.in/test/data1/tooltips/4.jpg" alt="4"/>1</span></a>
-                 <a href="http://iitg.net.in/test/data1/images/6.jpg" title="6"><span>2</span></a>
-                 <a href="http://iitg.net.in/test/data1/images/3.jpg" title="3"><span>3</span></a>
-                 <a href="http://iitg.net.in/test/data1/images/2.jpg" title="2"><span>4</span></a>
-                 <a href="http://iitg.net.in/test/data1/images/1.jpg" title="1"><span>5</span></a>
-                 <a href="http://iitg.net.in/test/data1/images/5.jpg" title="5"><span>6</span></a>
+                 <a href="{% static 'main/images/4.jpg' %}" title="4"><span>1</span></a>
+                 <a href="{% static 'main/images/6.jpg' %}" title="6"><span>2</span></a>
+                 <a href="{% static 'main/images/3.jpg' %}" title="3"><span>3</span></a>
+                 <a href="{% static 'main/images/2.jpg' %}" title="2"><span>4</span></a>
+                 <a href="{% static 'main/images/1.jpg' %}" title="1"><span>5</span></a>
+                 <a href="{% static 'main/images/5.jpg' %}" title="5"><span>6</span></a>
+                 {% for token in carouselimages %}
+                      <a href="{% static token.image %}" title="5"><span>6</span></a>
+                  {% endfor %}
               </div>
            </div>
            <div class="ws-title-wrapper">
@@ -178,8 +192,8 @@
             </div>
          </div>
         </div>
-        <script type="text/javascript" src="engine1/wowslider.js"></script>
-        <script type="text/javascript" src="engine1/script.js"></script>
+        <script type="text/javascript" src="{% static 'main/engine1/wowslider.js' %}"></script>
+        <script type="text/javascript" src="{% static 'main/engine1/script.js' %}"></script>
         <!-- End WOWSlider.com BODY section -->
          <div class="information" style="margin-bottom: 5%">
             <div class="container">
@@ -203,9 +217,9 @@
                            {% for token in upcomingevent %}
 		                        	{% if token.is_active %}
 		                        		<div class="row">
-			                              <div class="col-sm-2">{{ token.date }}</div>
+			                              <div class="col-sm-2">{{ token.date.day }} {{ token.date|date:'N' }}</div>
 			                              <div class="col-sm-10 upcoming-text"><a href="{{token.link}}">{{ token.title }}</a></div>
-			                           </div>
+                                </div>
 		                        	{% endif %}
 		                        {% endfor %}
                         </li>
@@ -230,7 +244,7 @@
                   <div class="col-md-3">
                      <div class="thumbnail">
                         <a href="/w3images/lights.jpg">
-                           <img src="images/director.jpg" style="width:100%">
+                           <img src="{% static 'main/images/director.jpg' %}" style="width: 100%;height: 200px;">
                            <div class="caption">
                               <p>Director's Desk</p>
                            </div>
@@ -240,7 +254,7 @@
                   <div class="col-md-3">
                      <div class="thumbnail">
                         <a href="/w3images/nature.jpg">
-                           <img src="images/initiative.jpg" style="width:100%">
+                           <img src="{% static 'main/images/initiative.jpg' %}" style="width: 100%;height: 200px;">
                            <div class="caption">
                               <p>Initiative</p>
                            </div>
@@ -250,7 +264,7 @@
                   <div class="col-md-3">
                      <div class="thumbnail">
                         <a href="/w3images/fjords.jpg">
-                           <img src="images/initiative.jpg" style="width:100%">
+                           <img src="{% static 'main/images/initiative.jpg' %}" style="width: 100%;height: 200px;">
                            <div class="caption">
                               <p>About the campus</p>
                            </div>
@@ -260,7 +274,7 @@
                   <div class="col-md-3">
                      <div class="thumbnail">
                         <a href="/w3images/fjords.jpg">
-                           <img src="images/alumni.jpg" style="width:100%">
+                           <img src="{% static 'main/images/alumni.jpg' %}" style="width: 100%;height: 200px;">
                            <div class="caption">
                               <p>Alumni </p>
                            </div>
@@ -272,7 +286,7 @@
          </div>
          <div>
           <a >
-            <img style="width: 100%" data-toggle="modal" data-target="#myModal" src="images/video.png" />
+            <img style="width: 100%" data-toggle="modal" data-target="#myModal" src="{% static 'main/images/video.PNG' %}" />
           </a>
          </div>
           <!-- Modal -->
@@ -281,7 +295,8 @@
             
               <!-- Modal content-->
               <div class="modal-content">
-               <iframe style="width:100%; height: 300px;" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+               <iframe style="width:100%; height: 300px;" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen>
+               </iframe>
               </div>
               
             </div>

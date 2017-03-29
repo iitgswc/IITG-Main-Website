@@ -23,5 +23,5 @@ admin.site.register(Programm)
 admin.site.register(Current)
 
 # unregister the users model
-admin.site.unregister(Group)
-admin.site.unregister(User)
+# admin.site.unregister(Group)
+# admin.site.unregister(User)
